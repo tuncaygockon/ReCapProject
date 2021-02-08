@@ -1,6 +1,7 @@
 ﻿using Business.Abstract;
 using DataAccess.Abstract;
 using Entities.Concrete;
+using Entities.DTOs;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -69,5 +70,10 @@ namespace Business.Concrete
                 Console.WriteLine("Enter a price more than 0TL");
             }
         }
+        public List<ProductDetailDto> productDetailDtos()
+        {
+            return _carDal.GetProductDetails();
+        }
     }
 }
+
