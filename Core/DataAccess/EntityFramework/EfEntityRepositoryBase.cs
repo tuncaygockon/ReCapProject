@@ -32,38 +32,49 @@ namespace Core.DataAccess.EntityFramework
             }
         }
 
-        public List<TEntity> GetAll(Expression<Func<TEntity, bool>> filter = null)
-        {
-            using (TContext context = new TContext())
+            public TEntity Get(Expression<Func<TEntity, bool>> filter)
             {
-                return filter == null ? context.Set<TEntity>().ToList() : context.Set<TEntity>().Where(filter).ToList();
-            }
-        }
-
-        public TEntity GetByBrandId(Expression<Func<TEntity, bool>> filter)
-        {
             using (TContext context = new TContext())
             {
                 return context.Set<TEntity>().SingleOrDefault(filter);
             }
-        }
-
-        public TEntity GetByColorId(Expression<Func<TEntity, bool>> filter)
-        {
-            using (TContext context = new TContext())
-            {
-                return context.Set<TEntity>().SingleOrDefault(filter);
             }
-        }
 
-        public void Update(TEntity entity)
-        {
-            using (TContext context = new TContext())
+            public List<TEntity> GetAll(Expression<Func<TEntity, bool>> filter = null)
             {
-                var updatedCar = context.Entry(entity);
-                updatedCar.State = EntityState.Modified;
-                context.SaveChanges();
+                using (TContext context = new TContext())
+                {
+                    return filter == null ? context.Set<TEntity>().ToList() : context.Set<TEntity>().Where(filter).ToList();
+                }
             }
-        }
+
+            public TEntity GetByBrandId(Expression<Func<TEntity, bool>> filter)
+            {
+                using (TContext context = new TContext())
+                {
+                    return context.Set<TEntity>().SingleOrDefault(filter);
+                }
+            }
+
+            public TEntity GetByColorId(Expression<Func<TEntity, bool>> filter)
+            {
+                using (TContext context = new TContext())
+                {
+                    return context.Set<TEntity>().SingleOrDefault(filter);
+                }
+            }
+
+            public void Update(TEntity entity)
+            {
+                using (TContext context = new TContext())
+                {
+                    var updatedCar = context.Entry(entity);
+                    updatedCar.State = EntityState.Modified;
+                    context.SaveChanges();
+                }
+            }
+        
     }
 }
+    
+

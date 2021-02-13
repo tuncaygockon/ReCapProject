@@ -6,9 +6,8 @@ using System.Text;
 
 namespace Business.Abstract
 {
-    public interface IColorService
+    public interface ICustomerService
     {
-        IDataResult<List<Color>> GetAll();
-        IDataResult<Color> GetAllById(int colorId);
+        IDataResult<List<Customer>> GetAll();
     }
 }
