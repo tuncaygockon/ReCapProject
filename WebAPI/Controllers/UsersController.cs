@@ -1,4 +1,6 @@
 ﻿using Business.Abstract;
+using Core.Entities.Concrete;
+using DataAccess.Abstract;
 using Entities.Concrete;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -19,6 +21,7 @@ namespace WebAPI.Controllers
         {
             _userService = userService;
         }
+
         [HttpPost("AddUser")]
         public IActionResult AddUser(User user)
         {
@@ -45,6 +48,17 @@ namespace WebAPI.Controllers
         public IActionResult UpdateUser(User user)
         {
             var result = _userService.Update(user);
+            if (result.Success)
+            {
+                return Ok(result);
+            }
+            return BadRequest(result);
+        }
+
+        [HttpGet("GetAllUsers")]
+        public IActionResult GetAllUsers()
+        {
+            var result = _userService.GetAll();
             if (result.Success)
             {
                 return Ok(result);

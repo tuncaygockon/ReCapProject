@@ -33,5 +33,19 @@ namespace Business.Constants
         public static string RentDeleted = "Rent deleted.";
         public static string RentUpdated = "Rent updated.";
         public static string CannotBeListed = "This list can not be listed.";
+        public static string MaxImageCount = "Max image count for this car has been reached.";
+        public static string ImageAdded = "Image has been added.";
+        public static string ImageDeleted = "Image has been deleted.";
+        public static object ImagesShown = "Images have been listed.";
+        public static string ImageUpdated = "Images have been updated.";
+        public static string ImageNotAdded = "Image cannot be added.";
+        public static string AuthorizationDenied = "Authorization denied.";
+        public static string UserRegistered = "User successfully created.";
+        public static string UserNotFound = "User could not be found.";
+        public static string PasswordError = "Password is invalid.";
+        public static string SuccessfulLogin = "You have logged in successfully.";
+        public static string AccessTokenCreated = "Access Token created.";
+        public static string UserAlreadyExists = "User already exists.";
+        public static string UserListed = "Users are listed.";
     }
 }
